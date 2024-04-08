@@ -1,6 +1,6 @@
 import React from "react";
 
-const FunctionFooter = () => {
+const Footer = () => {
     return (
         <footer>
             <p> Copyright Mexican Food 2024 </p>
@@ -8,4 +8,4 @@ const FunctionFooter = () => {
     )
 }
 
-export default FunctionFooter;
+export default Footer;
