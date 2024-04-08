@@ -1,6 +1,6 @@
 import React from "react";
 
-const Dish = ({name , img , prix, description}) => {
+const Dish = ({name , img , prix}) => {
     return (
         <div>
             <img src={img}/>
