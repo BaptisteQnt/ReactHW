@@ -1,12 +1,12 @@
 import React from "react";
-import '../asset/css/footer.css'
+import "../assets/styles/footer.css";
 
 const Footer = () => {
-    return (
-        <footer className="footer-bg">
-            <p> Copyright Mexican Food 2024 </p>
-        </footer>
-    )
-}
+  return (
+    <footer className="footer-bg">
+      <p> Copyright Mexican Food 2024 </p>
+    </footer>
+  );
+};
 
 export default Footer;
