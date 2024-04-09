@@ -4,6 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import "../assets/styles/header.css";
 import logo from "../assets/images/logo.webp";
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -19,8 +20,8 @@ const Header = () => {
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Nav>
-            <Nav.Link href="/">Accueil</Nav.Link>
-            <Nav.Link href="/a-propos">à propos</Nav.Link>
+            <Nav.Link href="/"><NavLink className="nav-link" to="/">Accueil</NavLink></Nav.Link>
+            <Nav.Link href="/a-propos"><NavLink className="nav-link" to="/a-propos">à propos</NavLink></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
