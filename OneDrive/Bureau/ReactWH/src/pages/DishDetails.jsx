@@ -7,7 +7,7 @@ import Col from "react-bootstrap/Col";
 const DishDetails = () => {
   const { slug } = useParams();
   return (
-    <Container fluid>
+    <Container>
       <Row>
         <Col>
           <h1>{slug}</h1>
