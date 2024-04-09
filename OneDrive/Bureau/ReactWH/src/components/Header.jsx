@@ -20,7 +20,6 @@ const Header = () => {
                 <nav className="d-inline-block justify-content-end">
                     <ul className="d-inline-block">
                         <li className="d-inline-block me-3"><a href="/">Accueil</a></li>
-                        <li className="d-inline-block"><a href="/">à propos</a></li>
                     </ul>
                 </nav>
             </Navbar.Text>

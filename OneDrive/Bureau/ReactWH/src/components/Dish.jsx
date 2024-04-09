@@ -7,9 +7,11 @@ const Dish = ({ name, img, price }) => {
     <Card>
       <Card.Img className="card-img" variant="top" src={img} />
       <Card.Body>
+        <Card.Title>
+          {name}
+        </Card.Title>
         <Card.Text>
-          <h4>{name}</h4>
-          <p>{price}</p>
+          {price}
         </Card.Text>
       </Card.Body>
     </Card>

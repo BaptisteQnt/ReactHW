@@ -12,8 +12,8 @@ function App() {
       <Header />
       <main>
         <Container>
-          <Row>
-            <Col md='auto'>
+          <Row className="mt-5 mb-5">
+            <Col>
               <Dish
                 name={"Tacos"}
                 price={3}
@@ -22,7 +22,7 @@ function App() {
                 }
               />
             </Col>
-            <Col md='auto'>
+            <Col>
               <Dish
                 name={"Enchiladas"}
                 price={12}
@@ -31,7 +31,7 @@ function App() {
                 }
               />
             </Col>
-            <Col md='auto'>
+            <Col>
               <Dish
                 name={"Mole poblano"}
                 price={15}
