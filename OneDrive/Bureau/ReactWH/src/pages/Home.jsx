@@ -39,7 +39,7 @@ const Home = () => {
   const newOnly = () => handleShowNewOnly(true);
   const allDish = () => handleShowNewOnly(false);
 
-  const filteredDishes = dishes.filter((dishes) => dishes.ISNew === true);
+  const filteredDishes = dishes.filter((dishes) => dishes.isNew === true);
 
   return (
     <Container>
@@ -60,7 +60,7 @@ const Home = () => {
                   price={dish.price}
                   img={dish.img}
                   slug={dish.slug}
-                  ISNew={dish.ISNew}
+                  isNew={dish.isNew}
                 />
               </Col>
             ))}
