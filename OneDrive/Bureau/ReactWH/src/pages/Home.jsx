@@ -1,8 +1,10 @@
-import React from "react";
+import { useState } from "react";
 import Dish from "../components/Dish";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
+import "../assets/styles/home.css";
 
 const Home = () => {
   const dishes = [
@@ -31,21 +33,60 @@ const Home = () => {
       ISNew: false,
     },
   ];
+
+  const [showNewOnly, handleShowNewOnly] = useState(false);
+
+  const newOnly = () => handleShowNewOnly(true);
+  const allDish = () => handleShowNewOnly(false);
+
+  const filteredDishes = dishes.filter((dishes) => dishes.ISNew === true);
+
   return (
     <Container>
-      <Row className="mt-5 mb-5">
-        {dishes.map((dish) => (
-          <Col key={dish.id}>
-            <Dish
-              name={dish.name}
-              price={dish.price}
-              img={dish.img}
-              slug={dish.slug}
-              ISNew={dish.ISNew}
-            />
-          </Col>
-        ))}
-      </Row>
+      {showNewOnly === true ? (
+        <div>
+          <Button
+            onClick={allDish}
+            className="dish-btn"
+            variant="primary"
+          >
+            Voir tous les plats
+          </Button>{" "}
+          <Row className="mt-5 mb-5">
+            {filteredDishes.map((dish) => (
+              <Col key={dish.id}>
+                <Dish
+                  name={dish.name}
+                  price={dish.price}
+                  img={dish.img}
+                  slug={dish.slug}
+                  ISNew={dish.ISNew}
+                />
+              </Col>
+            ))}
+          </Row>
+        </div>
+      ) : (
+        <div>
+          <Button onClick={newOnly} className="dish-btn" variant="primary">
+            Nouveautés uniquement
+          </Button>{" "}
+          <Row className="mt-5 mb-5">
+            {dishes.map((dish) => (
+              <Col key={dish.id}>
+                <Dish
+                  name={dish.name}
+                  price={dish.price}
+                  img={dish.img}
+                  slug={dish.slug}
+                  ISNew={dish.ISNew}
+                />
+              </Col>
+            ))}
+          </Row>
+        </div>
+      )}
+      ;
     </Container>
   );
 };
