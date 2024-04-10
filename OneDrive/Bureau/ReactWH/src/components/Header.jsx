@@ -4,24 +4,28 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import "../assets/styles/header.css";
 import logo from "../assets/images/logo.webp";
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
     <Navbar className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">
+        <NavLink className="navbar-brand" to="/">
           <img
             alt="Mexicain qui joue de la guitare"
             src={logo}
             className="d-inline-block align-top navbar-img"
           />
-        </Navbar.Brand>
+        </NavLink>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Nav>
-            <NavLink className="nav-link" to="/">Accueil</NavLink>
-            <NavLink className="nav-link" to="/a-propos">à propos</NavLink>
+            <NavLink className="nav-link" to="/">
+              Accueil
+            </NavLink>
+            <NavLink className="nav-link" to="/a-propos">
+              à propos
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>
