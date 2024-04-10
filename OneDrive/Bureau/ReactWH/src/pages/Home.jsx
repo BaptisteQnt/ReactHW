@@ -37,7 +37,7 @@ const Home = () => {
   const [showNewOnly, handleShowNewOnly] = useState(false);
 
   const newOnly = () => handleShowNewOnly(true);
-  const allDish = () => handleShowNewOnly(false);
+  
 
   const filteredDishes = dishes.filter((dishes) => dishes.isNew === true);
 
@@ -46,9 +46,9 @@ const Home = () => {
       {showNewOnly === true ? (
         <div>
           <Button
-            onClick={allDish}
             className="dish-btn"
             variant="primary"
+            onClick={handleShowNewOnly}
           >
             Voir tous les plats
           </Button>{" "}
@@ -79,7 +79,7 @@ const Home = () => {
                   price={dish.price}
                   img={dish.img}
                   slug={dish.slug}
-                  ISNew={dish.ISNew}
+                  ISNew={dish.isNew}
                 />
               </Col>
             ))}
