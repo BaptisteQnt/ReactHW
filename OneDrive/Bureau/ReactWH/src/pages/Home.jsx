@@ -34,59 +34,37 @@ const Home = () => {
     },
   ];
 
-  const [showNewOnly, handleShowNewOnly] = useState(false);
+  const [showNewOnly, setShowNewOnly] = useState(false);
+  const handleShowNewOnly = () => {
+    setShowNewOnly(!showNewOnly);
+  };
 
-  const newOnly = () => handleShowNewOnly(true);
-  
-
-  const filteredDishes = dishes.filter((dishes) => dishes.isNew === true);
+  const filteredDishes = showNewOnly
+    ? dishes.filter((dishes) => dishes.isNew === true)
+    : dishes;
 
   return (
     <Container>
-      {showNewOnly === true ? (
-        <div>
-          <Button
-            className="dish-btn"
-            variant="primary"
-            onClick={handleShowNewOnly}
-          >
-            Voir tous les plats
-          </Button>{" "}
-          <Row className="mt-5 mb-5">
-            {filteredDishes.map((dish) => (
-              <Col key={dish.id}>
-                <Dish
-                  name={dish.name}
-                  price={dish.price}
-                  img={dish.img}
-                  slug={dish.slug}
-                  isNew={dish.isNew}
-                />
-              </Col>
-            ))}
-          </Row>
-        </div>
-      ) : (
-        <div>
-          <Button onClick={newOnly} className="dish-btn" variant="primary">
-            Nouveautés uniquement
-          </Button>{" "}
-          <Row className="mt-5 mb-5">
-            {dishes.map((dish) => (
-              <Col key={dish.id}>
-                <Dish
-                  name={dish.name}
-                  price={dish.price}
-                  img={dish.img}
-                  slug={dish.slug}
-                  ISNew={dish.isNew}
-                />
-              </Col>
-            ))}
-          </Row>
-        </div>
-      )}
-      ;
+      <Button
+        onClick={handleShowNewOnly}
+        className="dish-btn"
+        variant="primary"
+      >
+        {showNewOnly ? "Voir tous les plats" : "Nouveautés uniquement"}
+      </Button>{" "}
+      <Row className="mt-5 mb-5">
+        {filteredDishes.map((dish) => (
+          <Col key={dish.id}>
+            <Dish
+              name={dish.name}
+              price={dish.price}
+              img={dish.img}
+              slug={dish.slug}
+              isNew={dish.isNew}
+            />
+          </Col>
+        ))}
+      </Row>
     </Container>
   );
 };
