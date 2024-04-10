@@ -1,8 +1,10 @@
-import React from "react";
+import { useState } from "react";
 import Dish from "../components/Dish";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
+import "../assets/styles/home.css";
 
 const Home = () => {
   const dishes = [
@@ -12,7 +14,7 @@ const Home = () => {
       price: 3,
       img: "https://cdn.pixabay.com/photo/2016/08/23/08/53/tacos-1613795_960_720.jpg",
       slug: "tacos",
-      ISNew: true,
+      isNew: true,
     },
     {
       id: 2,
@@ -20,7 +22,7 @@ const Home = () => {
       price: 12,
       img: "https://cdn.pixabay.com/photo/2014/01/14/22/13/mexican-245240_960_720.jpg",
       slug: "enchiladas",
-      ISNew: false,
+      isNew: false,
     },
     {
       id: 3,
@@ -28,20 +30,37 @@ const Home = () => {
       price: 15,
       img: "https://cdn.pixabay.com/photo/2021/02/04/03/57/mole-5980185_960_720.jpg",
       slug: "mole-poblano",
-      ISNew: false,
+      isNew: false,
     },
   ];
+
+  const [showNewOnly, setShowNewOnly] = useState(false);
+  const handleShowNewOnly = () => {
+    setShowNewOnly(!showNewOnly);
+  };
+
+  const filteredDishes = showNewOnly
+    ? dishes.filter((dishes) => dishes.isNew === true)
+    : dishes;
+
   return (
     <Container>
+      <Button
+        onClick={handleShowNewOnly}
+        className="dish-btn"
+        variant="primary"
+      >
+        {showNewOnly ? "Voir tous les plats" : "Nouveautés uniquement"}
+      </Button>{" "}
       <Row className="mt-5 mb-5">
-        {dishes.map((dish) => (
+        {filteredDishes.map((dish) => (
           <Col key={dish.id}>
             <Dish
               name={dish.name}
               price={dish.price}
               img={dish.img}
               slug={dish.slug}
-              ISNew={dish.ISNew}
+              isNew={dish.isNew}
             />
           </Col>
         ))}
