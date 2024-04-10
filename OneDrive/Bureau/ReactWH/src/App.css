@@ -6,6 +6,12 @@ main a {
   text-decoration: none;
 }
 
+main li {
+  list-style: none;
+  float: inline-start; 
+  margin: 10px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
