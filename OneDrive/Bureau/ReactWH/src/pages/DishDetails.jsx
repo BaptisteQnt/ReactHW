@@ -1,18 +1,45 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Dishes from "../datas/dishes.json";
+import Button from 'react-bootstrap/Button';
 
 const DishDetails = () => {
   const { slug } = useParams();
+  const [dish, setDish] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const currentDish = Dishes.find((dish) => dish.slug === slug );
+    console.log(currentDish);
+    if(!currentDish){
+      navigate("*");
+    }
+    setDish(currentDish);
+    
+  }, [slug, navigate])
+
+
   return (
-    <Container>
-      <Row>
+    <Container className="mt-5 mb-5">
+      {dish ? <Row>
         <Col>
-          <h1>{slug}</h1>
+          <img className="mw-100" src= { dish.img } />
         </Col>
-      </Row>
+        <Col>
+          <h2>{ dish.name }</h2>
+          <p>{ dish.description }</p>
+          <p>{ dish.price }</p>
+          <Button variant="primary">Commander</Button>
+        </Col>
+      </Row> : (
+        <Row>
+          <h1>Chargement en cours ...</h1>
+        </Row>
+      )}
     </Container>
   );
 };
