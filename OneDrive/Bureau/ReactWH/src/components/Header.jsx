@@ -22,13 +22,13 @@ const Header = () => {
   return (
     <Navbar className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">
+        <NavLink className="navbar-brand" to="/">
           <img
             alt="Mexicain qui joue de la guitare"
             src={logo}
             className="d-inline-block align-top navbar-img"
           />
-        </Navbar.Brand>
+        </NavLink>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Nav>
