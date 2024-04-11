@@ -7,7 +7,7 @@ import Col from "react-bootstrap/Col";
 import Dishes from "../datas/dishes.json";
 import Button from 'react-bootstrap/Button';
 
-const DishDetails = () => {
+const DishDetails = ({addToCart}) => {
   const { slug } = useParams();
   const [dish, setDish] = useState(null);
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ const DishDetails = () => {
           <h2>{ dish.name }</h2>
           <p>{ dish.description }</p>
           <p>{ dish.price }</p>
-          <Button variant="primary">Commander</Button>
+          <Button onClick={() => addToCart(dish)} variant="primary">Commander</Button>
         </Col>
       </Row> : (
         <Row>
