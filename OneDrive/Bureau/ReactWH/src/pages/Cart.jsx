@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Table from 'react-bootstrap/Table';
+import { CartContext } from "../utils/context/CartContext";
 
-const Cart = ( {cart} ) => {
+const Cart = () => {
+    const { cart } = useContext(CartContext);
     return(
         <Container className="mt-5 mb-5">
             <Row>
