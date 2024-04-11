@@ -11,12 +11,12 @@ const Header = () => {
   const { cart } = useContext(CartContext)
 
   const getQuantity = () => {
-    console.log(cart);
+    
     let totalQuantity = 0;
     cart.forEach(dish => {
       totalQuantity+=dish.quantity
-      return totalQuantity;
     });
+    return totalQuantity;
   }
   
   return (
