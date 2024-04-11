@@ -24,10 +24,10 @@ const DishDetails = () => {
 
 
   return (
-    <Container>
-      (dish ? <Row>
+    <Container className="mt-5 mb-5">
+      {dish ? <Row>
         <Col>
-          <img src= { dish.img } />
+          <img className="mw-100" src= { dish.img } />
         </Col>
         <Col>
           <h2>{ dish.name }</h2>
@@ -39,7 +39,7 @@ const DishDetails = () => {
         <Row>
           <h1>Chargement en cours ...</h1>
         </Row>
-      )) 
+      )}
     </Container>
   );
 };
