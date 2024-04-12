@@ -7,6 +7,7 @@ import Col from "react-bootstrap/Col";
 import Dishes from "../datas/dishes.json";
 import Button from 'react-bootstrap/Button';
 import { CartContext } from "../utils/context/CartContext";
+import { Helmet } from 'react-helmet';
 
 const DishDetails = () => {
   const { slug } = useParams();
@@ -26,6 +27,9 @@ const DishDetails = () => {
 
   return (
     <Container className="mt-5 mb-5">
+      <Helmet>
+        <title>Détails du Plat</title>
+      </Helmet>
       {dish ? <Row>
         <Col>
           <img className="mw-100" src= { dish.img } alt={dish.name} />

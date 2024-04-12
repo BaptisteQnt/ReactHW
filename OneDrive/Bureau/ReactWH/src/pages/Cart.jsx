@@ -4,7 +4,8 @@ import Row from "react-bootstrap/Row";
 import Table from "react-bootstrap/Table";
 import { CartContext } from "../utils/context/CartContext";
 import useGetQuantity from "../utils/hooks/useGetQuantity";
-import useGetPrice from "../utils/hooks/useGetPrice"
+import useGetPrice from "../utils/hooks/useGetPrice";
+import { Helmet } from 'react-helmet';
 
 const Cart = () => {
   const { cart } = useContext(CartContext);
@@ -12,6 +13,9 @@ const Cart = () => {
   const totalPrice = useGetPrice();
   return (
     <Container className="mt-5 mb-5">
+      <Helmet>
+        <title>Mon Panier</title>
+      </Helmet>
       <Row>
         <Table striped bordered hover>
           <thead>

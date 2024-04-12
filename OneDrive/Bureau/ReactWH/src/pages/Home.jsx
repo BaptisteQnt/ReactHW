@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import "../assets/styles/home.css";
 import DishDetails from "../datas/dishes.json";
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
   const [dishes, setDishes] = useState([]);
@@ -16,15 +17,18 @@ const Home = () => {
     const filteredDishes = showNewOnly
       ? DishDetails.filter((dishes) => dishes.isNew === true)
       : DishDetails;
-      setDishes(filteredDishes);
+    setDishes(filteredDishes);
   }, [showNewOnly]);
-  
+
   const handleShowNewOnly = () => {
     setShowNewOnly(!showNewOnly);
   };
 
   return (
     <Container>
+      <Helmet>
+        <title>Accueil</title>
+      </Helmet>
       <Button
         onClick={handleShowNewOnly}
         className="dish-btn"
