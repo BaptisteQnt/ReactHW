@@ -12,7 +12,7 @@ const Dish = ({ name, img, price, slug, isNew }) => {
           {isNew === true && <Badge className="card-img-dish" bg="primary">Nouveau</Badge>}
         <Card.Body>
           <Card.Title>{name}</Card.Title>
-          <Card.Text>{price}</Card.Text>
+          <Card.Text>{price}€</Card.Text>
         </Card.Body>
       </Card>
     </Link>
